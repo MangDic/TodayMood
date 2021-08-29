@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-TodaysMood/Pods-TodaysMood-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/ExpyTableView/ExpyTableView.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
+${BUILT_PRODUCTS_DIR}/JJFloatingActionButton/JJFloatingActionButton.framework
+${BUILT_PRODUCTS_DIR}/PagingKit/PagingKit.framework

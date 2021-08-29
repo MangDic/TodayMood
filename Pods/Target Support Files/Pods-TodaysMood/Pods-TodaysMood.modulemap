@@ -1,0 +1,6 @@
+framework module Pods_TodaysMood {
+  umbrella header "Pods-TodaysMood-umbrella.h"
+
+  export *
+  module * { export * }
+}

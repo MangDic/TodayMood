@@ -1,0 +1,34 @@
+PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - ExpyTableView (1.2.1)
+  - IQKeyboardManagerSwift (6.5.6)
+  - JJFloatingActionButton (2.5.0)
+  - PagingKit (1.18.0)
+
+DEPENDENCIES:
+  - Charts
+  - ExpyTableView
+  - IQKeyboardManagerSwift
+  - JJFloatingActionButton
+  - PagingKit
+
+SPEC REPOS:
+  trunk:
+    - Charts
+    - ExpyTableView
+    - IQKeyboardManagerSwift
+    - JJFloatingActionButton
+    - PagingKit
+
+SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  ExpyTableView: 19cf224c2ff04b1ec215ec52bc4ba6f81fa809ed
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JJFloatingActionButton: fdc3aefb0f28f04d0f988fa25d5fac97028a9ea7
+  PagingKit: 366cc22d74f4de7768bb31d8fcd49182f53e3ce7
+
+PODFILE CHECKSUM: 95f2126dadfcc21f5d56317e8485e0711cafbada
+
+COCOAPODS: 1.10.1
