@@ -26,6 +26,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>THEHappyfruit.ttf</string>
+		<string>DX빨간우체통B.ttf</string>
 		<string>BinggraeTaom.ttf</string>
 		<string>BinggraeTaom-Bold.ttf</string>
 	</array>

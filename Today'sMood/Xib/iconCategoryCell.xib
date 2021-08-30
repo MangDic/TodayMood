@@ -4,12 +4,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="BinggraeTaom.ttf">
-            <string>BinggraeTaom</string>
+        <array key="THEHappyfruit.ttf">
+            <string>THEHappyfruit</string>
         </array>
     </customFonts>
     <objects>
@@ -20,14 +19,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjK-0d-4mq">
-                    <rect key="frame" x="174.5" y="66" width="33.5" height="17.5"/>
-                    <fontDescription key="fontDescription" name="BinggraeTaom" family="Binggrae Taom" pointSize="14"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="175" y="66.5" width="32" height="16"/>
+                    <fontDescription key="fontDescription" name="THEHappyfruit" family="THEHappyfruit" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.79445844021889211" blue="0.9489095674549497" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="RzB-bq-6Cx"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="KjK-0d-4mq" firstAttribute="centerX" secondItem="DEK-9y-OZe" secondAttribute="centerX" id="TUR-wm-ZwX"/>
                 <constraint firstItem="KjK-0d-4mq" firstAttribute="centerY" secondItem="DEK-9y-OZe" secondAttribute="centerY" id="itK-Zo-vO3"/>
@@ -39,9 +38,4 @@
             <point key="canvasLocation" x="348.75" y="-146.875"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -15,6 +15,7 @@
 		DA3B8F5826D387740017E9DD /* BinggraeTaom-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA3B8F5726D386420017E9DD /* BinggraeTaom-Bold.ttf */; };
 		DA3B8F5A26D387D20017E9DD /* BinggraeTaom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA3B8F5926D387D20017E9DD /* BinggraeTaom.ttf */; };
 		DA3B8F5C26D3918B0017E9DD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B8F5B26D3918B0017E9DD /* DetailViewController.swift */; };
+		DA70D9D626DCD2F800CCFEA3 /* THEHappyfruit.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA70D9D526DCD2F800CCFEA3 /* THEHappyfruit.ttf */; };
 		DABD849D26CF939C00D37E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD849C26CF939C00D37E3F /* AppDelegate.swift */; };
 		DABD849F26CF939C00D37E3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD849E26CF939C00D37E3F /* SceneDelegate.swift */; };
 		DABD84A126CF939C00D37E3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD84A026CF939C00D37E3F /* ViewController.swift */; };
@@ -78,6 +79,7 @@
 		DA3B8F5726D386420017E9DD /* BinggraeTaom-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BinggraeTaom-Bold.ttf"; sourceTree = "<group>"; };
 		DA3B8F5926D387D20017E9DD /* BinggraeTaom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BinggraeTaom.ttf; sourceTree = "<group>"; };
 		DA3B8F5B26D3918B0017E9DD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DA70D9D526DCD2F800CCFEA3 /* THEHappyfruit.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THEHappyfruit.ttf; sourceTree = "<group>"; };
 		DABD849926CF939C00D37E3F /* TodaysMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodaysMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABD849C26CF939C00D37E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DABD849E26CF939C00D37E3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		DA3B8F5626D3862A0017E9DD /* font */ = {
 			isa = PBXGroup;
 			children = (
+				DA70D9D526DCD2F800CCFEA3 /* THEHappyfruit.ttf */,
 				DA3B8F5726D386420017E9DD /* BinggraeTaom-Bold.ttf */,
 				DA3B8F5926D387D20017E9DD /* BinggraeTaom.ttf */,
 			);
@@ -424,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA70D9D626DCD2F800CCFEA3 /* THEHappyfruit.ttf in Resources */,
 				DA3B8F5826D387740017E9DD /* BinggraeTaom-Bold.ttf in Resources */,
 				DABD84A926CF939D00D37E3F /* LaunchScreen.storyboard in Resources */,
 				DAC0873826D4D32300230CA9 /* iconCategoryCell.xib in Resources */,

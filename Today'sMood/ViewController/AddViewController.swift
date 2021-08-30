@@ -40,13 +40,17 @@ class AddViewController: UIViewController, DeliveryDataProtocol {
         
         dataSource = makeDataSource()
         
+        titleText.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
+        titleText.layer.borderWidth = 2
+        titleText.layer.cornerRadius = 10
+        
         contentView.layer.cornerRadius = 10
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = #colorLiteral(red: 0.7203359008, green: 0.7957891822, blue: 0.9689690471, alpha: 1)
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
         
         myTextView.layer.cornerRadius = 10
-        myTextView.layer.borderWidth = 1
-        myTextView.layer.borderColor = #colorLiteral(red: 0.7203359008, green: 0.7957891822, blue: 0.9689690471, alpha: 1)
+        myTextView.layer.borderWidth = 2
+        myTextView.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
         
         setTodayData()
 
@@ -79,11 +83,9 @@ class AddViewController: UIViewController, DeliveryDataProtocol {
     fileprivate func setTodayData() {
         let today = NSDate() //현재 시각 구하기
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 M월 d일"
-        var dateString = dateFormatter.string(from: today as Date)
-        dateFormatter.dateFormat = "EE"
-        let temp = dateFormatter.string(from: today as Date)
-        print(temp)
+        dateFormatter.dateFormat = "yyyy년 M월 d일 EEEE"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateString = dateFormatter.string(from: today as Date)
         self.dateLabel.text = dateString
         
         

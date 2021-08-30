@@ -13,26 +13,27 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var chartContainerView: BarChartView!
     
     var diary = [String:[Diary]]()
-    var values: [Double] = []
-    var mood: [String] = []
     var emptyLabel = UILabel()
+    var moodValues = [String:Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         chartContainerView.noDataText = "데이터가 없습니다 ㅠㅠ"
-        chartContainerView.noDataFont = UIFont(name: "BinggraeTaom-Bold", size: 20)!
-        
+        chartContainerView.noDataFont = UIFont(name: "THEHappyfruit", size: 24)!
+        chartContainerView.noDataTextColor = #colorLiteral(red: 0.9891662002, green: 1, blue: 0.8718685508, alpha: 1)
+
         setValues() {
             if self.diary.count == 0 {
                 self.setEmptyLabel()
             }
             else {
-                self.customizeChart(dataPoints: self.mood, values: self.values.map{ Double($0) })
+                self.customizeChart(data: self.moodValues)
             }
         }
         chartContainerView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
+    
     
     @IBAction func didTabCancel(_ sender: Any) {
         self.dismiss(animated: true)
@@ -40,9 +41,6 @@ class ChartViewController: UIViewController {
     
     fileprivate func setEmptyLabel() {
         emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.chartContainerView.bounds.size.width, height: self.chartContainerView.bounds.size.height))
-        emptyLabel.text = "데이터가 없습니다 ㅠㅠ"
-        emptyLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        emptyLabel.font = UIFont(name: "BinggraeTaom-Bold", size: 20)
         emptyLabel.textAlignment = NSTextAlignment.center
     }
     
@@ -51,41 +49,44 @@ class ChartViewController: UIViewController {
             var happyCnt = 0
             var sadCnt = 0
             var angryCnt = 0
-            var keyOfMood = [String:Any]()
             for key in diary.keys {
                 for item in diary[key]! {
                     switch item.mood {
                     case "happy":
                         happyCnt += 1
-                        keyOfMood["좋아요"] = ""
                     case "sad":
                         sadCnt += 1
-                        keyOfMood["슬퍼요"] = ""
                     default :
                         angryCnt += 1
-                        keyOfMood["화나요"] = ""
                     }
                 }
             }
-            values = [Double(happyCnt), Double(sadCnt), Double(angryCnt)]
-            for key in keyOfMood.keys {
-                mood.append(key)
-            }
+            moodValues["신나요"] = Double(happyCnt)
+            moodValues["슬퍼요"] = Double(sadCnt)
+            moodValues["화나요"] = Double(angryCnt)
         }
         completion()
     }
-    
-    func customizeChart(dataPoints: [String], values: [Double]) {
+    //dataPoints: [String], values: [Double]
+    func customizeChart(data: [String:Double]) {
       
+        var index = 0
       // 1. Set ChartDataEntry
       var dataEntries: [ChartDataEntry] = []
-      for i in 0..<dataPoints.count {
-        let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
+        for i in data.keys {
+            if data[i] == 0 {
+                continue
+            }
+            index += 1
+            let dataEntry = PieChartDataEntry(value: data[i]!, label: i, data: i as AnyObject)
         dataEntries.append(dataEntry)
       }
       // 2. Set ChartDataSet
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
-      pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
+      let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+      pieChartDataSet.colors = colorsOfCharts(numbersOfColor: index)
+        pieChartDataSet.entryLabelFont = UIFont(name: "THEHappyfruit", size: 10)
+        pieChartDataSet.entryLabelColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        pieChartDataSet.selectionShift = CGFloat(10)
       // 3. Set ChartData
       let pieChartData = PieChartData(dataSet: pieChartDataSet)
       let format = NumberFormatter()
@@ -93,6 +94,7 @@ class ChartViewController: UIViewController {
       let formatter = DefaultValueFormatter(formatter: format)
       pieChartData.setValueFormatter(formatter)
       chartContainerView.data = pieChartData
+        
     }
     
     private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {

@@ -13,7 +13,8 @@ class CustomSubView : UIView {
         super.init(coder: aDecoder)!
         
         self.layer.cornerRadius = 10
-        self.layer.borderWidth = 1
-        self.layer.borderColor = #colorLiteral(red: 0.7203359008, green: 0.7957891822, blue: 0.9689690471, alpha: 1)
+        self.layer.borderWidth = 2
+        self.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
+        
     }
 }

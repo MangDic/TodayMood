@@ -37,8 +37,8 @@ class ViewController: UIViewController, DeliveryDiaryProtocol {
     fileprivate func setEmptyLabel() {
         emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         emptyLabel.text = "새로운 기분을 추가해보세요!"
-        emptyLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        emptyLabel.font = UIFont(name: "BinggraeTaom-Bold", size: 20)
+        emptyLabel.textColor = #colorLiteral(red: 0.9891662002, green: 1, blue: 0.8718685508, alpha: 1)
+        emptyLabel.font = UIFont(name: "THEHappyfruit", size: 25)
         emptyLabel.textAlignment = NSTextAlignment.center
         self.myTableView.backgroundView = emptyLabel
         self.myTableView.separatorStyle = .none
@@ -57,7 +57,7 @@ class ViewController: UIViewController, DeliveryDiaryProtocol {
     fileprivate func setRightButton() {
         let actionButton = JJFloatingActionButton()
         
-        actionButton.buttonColor = #colorLiteral(red: 0.7203359008, green: 0.7957891822, blue: 0.9689690471, alpha: 1)
+        actionButton.buttonColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
 
         actionButton.addItem(title: "나의 기분", image: UIImage(systemName: "chart.bar.xaxis")?.withRenderingMode(.alwaysTemplate)) { item in
             self.presentReportView()
@@ -96,15 +96,13 @@ class ViewController: UIViewController, DeliveryDiaryProtocol {
     func deliveryData(_ data: Diary) {
         let temp = data.date.components(separatedBy: " ")
         let key = temp[0] + " " + temp[1]
-        let date = temp[1] + " " + temp[2]
+        let date = temp[1] + " " + temp[2] + " " + temp[3]
         
         if item[key]?.count == nil {
-            print("카운트 0")
             itemArrayKeys.append(key)
             item[key] = [Diary(date: date, title: data.title, detail: data.detail, image: data.image, mood: data.mood)]
         }
         else {
-            print("append")
             item[key]?.append(Diary(date: date, title: data.title, detail: data.detail, image: data.image, mood: data.mood))
         }
        
@@ -121,9 +119,6 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(item)
-        print(item.count)
-        print(itemArrayKeys)
         if item.count == 0 {
             emptyLabel.isHidden = false
             return 0
@@ -138,7 +133,7 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
     func tableView(_ tableView: ExpyTableView, expandableCellForSection section: Int) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
         cell.dataLabel.text = itemArrayKeys[section]
-        cell.dataLabel.font = UIFont(name: "BinggraeTaom-Bold", size: 20)
+        cell.dataLabel.font = UIFont(name: "THEHappyfruit", size: 24)
         
         let bgView = UIView()
         bgView.backgroundColor = .gray
@@ -165,16 +160,16 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell") as! detailCell
         let diary  = item[itemArrayKeys[indexPath.section]] as! [Diary]
         cell.titleLabel.text = "\(diary[indexPath.row - 1].title)"
-        cell.titleLabel.font = UIFont(name: "BinggraeTaom", size: 15)
+        cell.titleLabel.font = UIFont(name: "THEHappyfruit", size: 20)
         
         cell.dataLabel.text = diary[indexPath.row - 1].date
-        cell.dataLabel.font = UIFont(name: "BinggraeTaom", size: 15)
+        cell.dataLabel.font = UIFont(name: "THEHappyfruit", size: 17)
         
         cell.icon.text = diary[indexPath.row - 1].image
         
-        cell.iconView.layer.cornerRadius = 20
-        cell.iconView.layer.borderColor = #colorLiteral(red: 0.7067331076, green: 0.7954463959, blue: 0.9846035838, alpha: 1)
-        cell.iconView.layer.borderWidth = 1
+        cell.iconView.layer.cornerRadius = 10
+        cell.iconView.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
+        cell.iconView.layer.borderWidth = 2
         
         cell.delete = { [unowned self] in
             item[itemArrayKeys[indexPath.section]]?.remove(at: indexPath.row - 1)
@@ -183,6 +178,7 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
                 itemArrayKeys.remove(at: indexPath.section)
                 
             }
+            self.saveDiary()
             myTableView.reloadData()
         }
         
