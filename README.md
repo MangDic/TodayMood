@@ -12,7 +12,6 @@
 ## 사용기술
 
 - `Swift 5`,  `Xcode 12`
-- `RxSwift`, `Moya`, `Alamofire`
 - `MVVM Pattern`, `Delegate Pattern`
 - `ExpyTableView`, `JJFloatingActionButton`, `PagingKit`, `Charts`
 
