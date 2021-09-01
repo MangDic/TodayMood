@@ -16,6 +16,7 @@
 		DA3B8F5A26D387D20017E9DD /* BinggraeTaom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA3B8F5926D387D20017E9DD /* BinggraeTaom.ttf */; };
 		DA3B8F5C26D3918B0017E9DD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B8F5B26D3918B0017E9DD /* DetailViewController.swift */; };
 		DA70D9D626DCD2F800CCFEA3 /* THEHappyfruit.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA70D9D526DCD2F800CCFEA3 /* THEHappyfruit.ttf */; };
+		DA95574426DD0CFE001AB505 /* ColorSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA95574326DD0CFE001AB505 /* ColorSeparator.swift */; };
 		DABD849D26CF939C00D37E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD849C26CF939C00D37E3F /* AppDelegate.swift */; };
 		DABD849F26CF939C00D37E3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD849E26CF939C00D37E3F /* SceneDelegate.swift */; };
 		DABD84A126CF939C00D37E3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD84A026CF939C00D37E3F /* ViewController.swift */; };
@@ -80,6 +81,7 @@
 		DA3B8F5926D387D20017E9DD /* BinggraeTaom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BinggraeTaom.ttf; sourceTree = "<group>"; };
 		DA3B8F5B26D3918B0017E9DD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DA70D9D526DCD2F800CCFEA3 /* THEHappyfruit.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THEHappyfruit.ttf; sourceTree = "<group>"; };
+		DA95574326DD0CFE001AB505 /* ColorSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSeparator.swift; sourceTree = "<group>"; };
 		DABD849926CF939C00D37E3F /* TodaysMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodaysMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABD849C26CF939C00D37E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DABD849E26CF939C00D37E3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				DAC0873426D4CF3000230CA9 /* CustomButton.swift */,
 				DAC0874626D4E1D400230CA9 /* CustomView.swift */,
 				DAC1F27026D8DD8600D953B6 /* CustomSubView.swift */,
+				DA95574326DD0CFE001AB505 /* ColorSeparator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				DAC0874D26D4E8C800230CA9 /* DeliveryDataProtocol.swift in Sources */,
 				DABD849D26CF939C00D37E3F /* AppDelegate.swift in Sources */,
 				DABD849F26CF939C00D37E3F /* SceneDelegate.swift in Sources */,
+				DA95574426DD0CFE001AB505 /* ColorSeparator.swift in Sources */,
 				DABD84D626CFA36900D37E3F /* Diary.swift in Sources */,
 				DAC1F27126D8DD8600D953B6 /* CustomSubView.swift in Sources */,
 				DA3B8F5C26D3918B0017E9DD /* DetailViewController.swift in Sources */,
@@ -762,12 +766,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L96BVXND6V;
 				INFOPLIST_FILE = "Today'sMood/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Today-sMood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -782,12 +788,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L96BVXND6V;
 				INFOPLIST_FILE = "Today'sMood/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Today-sMood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

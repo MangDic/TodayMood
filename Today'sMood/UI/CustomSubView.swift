@@ -12,7 +12,7 @@ class CustomSubView : UIView {
     required init(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)!
         
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 6
         self.layer.borderWidth = 2
         self.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
         

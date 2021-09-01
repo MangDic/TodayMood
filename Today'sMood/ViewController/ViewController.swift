@@ -8,6 +8,7 @@
 import UIKit
 import ExpyTableView
 import JJFloatingActionButton
+import CoreGraphics
 
 
 class ViewController: UIViewController, DeliveryDiaryProtocol {
@@ -23,16 +24,20 @@ class ViewController: UIViewController, DeliveryDiaryProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setEmptyLabel()
         setRightButton()
         
-        diaryViewModel.getDiary() { diaryData in
-            self.item = diaryData
+        diaryViewModel.getDiary() { (item, keys) in
+            self.item = item
+            self.itemArrayKeys = keys
             self.myTableView.delegate = self
             self.myTableView.dataSource = self
-            self.setKey()
+            self.myTableView.reloadData()
         }
     }
+    
+    
     
     fileprivate func setEmptyLabel() {
         emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
@@ -44,14 +49,18 @@ class ViewController: UIViewController, DeliveryDiaryProtocol {
         self.myTableView.separatorStyle = .none
     }
     
-    fileprivate func setKey() {
-        for i in item.keys {
-            itemArrayKeys.append(i)
-        }
-    }
-    
     fileprivate func saveDiary() {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(item), forKey:"diary")
+    }
+    
+    fileprivate func isFirstTime() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isFirstTime") == nil {
+            defaults.set("No", forKey:"isFirstTime")
+            return true
+        } else {
+            return false
+        }
     }
     
     fileprivate func setRightButton() {
@@ -105,9 +114,9 @@ class ViewController: UIViewController, DeliveryDiaryProtocol {
         else {
             item[key]?.append(Diary(date: date, title: data.title, detail: data.detail, image: data.image, mood: data.mood))
         }
-       
-        self.myTableView.reloadData()
+        
         self.saveDiary()
+        self.myTableView.reloadData()
         
     }
 }
@@ -119,17 +128,16 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if item.count == 0 {
+        if itemArrayKeys.count == 0 {
             emptyLabel.isHidden = false
             return 0
         }
         else {
             emptyLabel.isHidden = true
-            return item.count
+            return itemArrayKeys.count
         }
     }
     
-    // 헤더 셀 설정 (펼쳐지는 섹션)
     func tableView(_ tableView: ExpyTableView, expandableCellForSection section: Int) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
         cell.dataLabel.text = itemArrayKeys[section]
@@ -139,13 +147,15 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
         bgView.backgroundColor = .gray
         cell.selectedBackgroundView = bgView
         
-        cell.sectionIndex = section
+        let colorSeparator = ColorSeparator()
+        let tempKey = itemArrayKeys[section].split(separator: " ")
+        cell.myContentView.backgroundColor = colorSeparator.sepatateColorByKey(key: String(tempKey[1]))
         
+        cell.sectionIndex = section
         
         return cell
     }
     
-    // 각 섹션에 들어갈 row의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if itemArrayKeys.count == 0 {
             return 0
@@ -155,7 +165,6 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
         }
     }
     
-    // 펼쳐진 셀 설정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell") as! detailCell
         let diary  = item[itemArrayKeys[indexPath.section]] as! [Diary]
@@ -167,9 +176,10 @@ extension ViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
         
         cell.icon.text = diary[indexPath.row - 1].image
         
-        cell.iconView.layer.cornerRadius = 10
+        cell.iconView.layer.cornerRadius = 6
         cell.iconView.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
         cell.iconView.layer.borderWidth = 2
+        
         
         cell.delete = { [unowned self] in
             item[itemArrayKeys[indexPath.section]]?.remove(at: indexPath.row - 1)

@@ -12,6 +12,7 @@ class HeaderCell: UITableViewCell, ExpyTableViewHeaderCell {
     
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var myContentView: UIView!
     
     var sectionIndex: Int = 0 {
         didSet {

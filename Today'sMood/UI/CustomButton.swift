@@ -13,7 +13,7 @@ class CustomButton : UIButton{
         super.init(coder: aDecoder)!
         
         let colorLiteral = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 6
         self.layer.backgroundColor = colorLiteral.cgColor
         self.setTitleColor(.white, for: .normal)
         self.titleLabel?.font = UIFont(name: "THEHappyfruit", size: 16)

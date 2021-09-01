@@ -8,7 +8,7 @@
 import UIKit
 import PagingKit
 
-class AddViewController: UIViewController, DeliveryDataProtocol {
+class AddViewController: UIViewController, DeliveryDataProtocol, UITextViewDelegate {
     
 
     @IBOutlet weak var contentView: UIView!
@@ -42,15 +42,18 @@ class AddViewController: UIViewController, DeliveryDataProtocol {
         
         titleText.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
         titleText.layer.borderWidth = 2
-        titleText.layer.cornerRadius = 10
+        titleText.layer.cornerRadius = 6
+        titleText.tintColor = .white
         
-        contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 6
         contentView.layer.borderWidth = 2
         contentView.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
         
-        myTextView.layer.cornerRadius = 10
+        myTextView.layer.cornerRadius = 6
         myTextView.layer.borderWidth = 2
         myTextView.layer.borderColor = #colorLiteral(red: 0.9882430434, green: 0.7561861873, blue: 0.7487457991, alpha: 1)
+        
+        placeholderSetting()
         
         setTodayData()
 
@@ -62,6 +65,30 @@ class AddViewController: UIViewController, DeliveryDataProtocol {
 
    }
     
+    func placeholderSetting() {
+            myTextView.delegate = self // txtvReview가 유저가 선언한 outlet
+        myTextView.text = " 자세히 알려주세요!"
+        myTextView.textColor = UIColor.lightGray
+            
+        }
+        
+        
+        // TextView Place Holder
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            if textView.textColor == UIColor.lightGray {
+                textView.text = nil
+                textView.textColor = #colorLiteral(red: 0.5186448693, green: 0.7119304538, blue: 1, alpha: 1)
+            }
+            
+        }
+        // TextView Place Holder
+        func textViewDidEndEditing(_ textView: UITextView) {
+            if textView.text.isEmpty {
+                textView.text = " 자세히 알려주세요!"
+                textView.textColor = UIColor.lightGray
+            }
+        }
+    
     func deliveryData(_ data: iconAndMood) {
         iconLabel.text = data.icon
         getMood = data.mood
@@ -72,7 +99,11 @@ class AddViewController: UIViewController, DeliveryDataProtocol {
             warningMessage.isHidden = false
         }
         else {
-            delegate?.deliveryData(Diary(date: self.dateLabel.text!, title: titleText.text!, detail: myTextView.text!, image: self.iconLabel.text!, mood: getMood))
+            var tempText = myTextView.text
+            if tempText == " 자세히 알려주세요!" {
+                tempText = ""
+            }
+            delegate?.deliveryData(Diary(date: self.dateLabel.text!, title: titleText.text!, detail: tempText!, image: self.iconLabel.text!, mood: getMood))
             self.dismiss(animated: true)
         }
     }

@@ -21,12 +21,12 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjK-0d-4mq">
                     <rect key="frame" x="175" y="66.5" width="32" height="16"/>
                     <fontDescription key="fontDescription" name="THEHappyfruit" family="THEHappyfruit" pointSize="16"/>
-                    <color key="textColor" red="1" green="0.79445844021889211" blue="0.9489095674549497" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="textColor" red="0.98824304340000002" green="0.75618618729999998" blue="0.74874579910000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="RzB-bq-6Cx"/>
-            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="KjK-0d-4mq" firstAttribute="centerX" secondItem="DEK-9y-OZe" secondAttribute="centerX" id="TUR-wm-ZwX"/>
                 <constraint firstItem="KjK-0d-4mq" firstAttribute="centerY" secondItem="DEK-9y-OZe" secondAttribute="centerY" id="itK-Zo-vO3"/>
